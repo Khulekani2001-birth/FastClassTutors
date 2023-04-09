@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>All Tutors </h3>
+    <a href="{% url 'download-allTutors' %}">Download Tutors</a>
+    <hr>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Course</th>
+            <th scope="col">Cell</th>
+            <th scope="col">Email</th>
+            <th scope="col">Subjects</th>
+            <th scope="col">Available Hours</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for tutor in tutors %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{ tutor }}</th>
+            <td>{{ tutor.degree_or_major }}</td>
+            <td>{{ tutor.cell }}</td>
+            <td>{{ tutor.email }}</td>
+            <td>
+                <ul>
+                    {% if tutor.Accounting != 'NA'%}
+                    <li>Accounting : {{tutor.Accounting}}</li>
+                    {% endif %}
+                    {% if tutor.Afrikaans_Second_Language != 'NA'%}
+                    <li>Afrikaans Second Language : {{tutor.Afrikaans_Second_Language}}</li>
+                    {% endif %}
+                    {% if tutor.Biology_or_Life_Sciences != 'NA'%}
+                    <li>Biology/Life Sciences : {{tutor.Biology_or_Life_Sciences}}</li>
+                    {% endif %}
+                    {% if tutor.Business != 'NA'%}
+                    <li>Business : {{tutor.Business}}</li>
+                    {% endif %}
+                    {% if tutor.Chemistry != 'NA'%}
+                    <li>Chemistry : {{tutor.Chemistry}}</li>
+                    {% endif %}
+                    {% if tutor.Economics != 'NA'%}
+                    <li>Economics : {{tutor.Economics}}</li>
+                    {% endif %}
+                    {% if tutor.English != 'NA'%}
+                    <li>English : {{tutor.English}}</li>
+                    {% endif %}
+                    {% if tutor.Geography != 'NA'%}
+                    <li>Geography : {{tutor.Geography}}</li>
+                    {% endif %}
+                    {% if tutor.History != 'NA'%}
+                    <li>History : {{tutor.History}}</li>
+                    {% endif %}
+                    {% if tutor.ICT != 'NA'%}
+                    <li>ICT : {{tutor.ICT}}</li>
+                    {% endif %}
+                    {% if tutor.isiXhosa != 'NA'%}
+                    <li>isiXhosa : {{tutor.isiXhosa}}</li>
+                    {% endif %}
+                    {% if tutor.Mathematics != 'NA'%}
+                    <li>Mathematics : {{tutor.Mathematics}}</li>
+                    {% endif %}
+                    {% if tutor.Mathematics_AP != 'NA'%}
+                    <li>Mathematics AP : {{tutor.Mathematics_AP}}</li>
+                    {% endif %}
+                    {% if tutor.Physical_Sciences != 'NA'%}
+                    <li>Physical Sciences : {{tutor.Physical_Sciences}}</li>
+                    {% endif %}
+                    {% if tutor.Other_1 != 'NA'%}
+                    <li>{{tutor.Other_1}}</li>
+                    {% endif %}
+                    {% if tutor.Other_2 != 'NA'%}
+                    <li>{{tutor.Other_2}}</li>
+                    {% endif %}
+                </ul>
+            </td>
+            <td>{{tutor.number_of_hours}}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% endblock %}
